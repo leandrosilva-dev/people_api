@@ -29,6 +29,8 @@ jobs:
           
       - name: Install Maven
         uses: maven/maven-installer@v3.8.4
+        with:
+          maven_repository_path: /opt/maven
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
