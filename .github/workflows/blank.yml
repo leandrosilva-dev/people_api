@@ -22,16 +22,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: actions/setup-java@v2
+      - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
           java-version: '11'
           cache: maven
-          
-      - name: Install Maven
-        uses: maven/maven-installer@v3.8.4
-        with:
-          maven_repository_path: /opt/maven
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -45,3 +40,6 @@ jobs:
           
       - name: Java version
         run: java --version
+        
+      - name: Maven version
+        run: mvn -version
