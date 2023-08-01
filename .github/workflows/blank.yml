@@ -26,6 +26,7 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '11'
+          cache: maven
           
       - name: Install Maven
         uses: maven/maven-installer@v3.8.4
