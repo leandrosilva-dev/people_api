@@ -30,6 +30,8 @@ jobs:
 
       - name: Install Maven
         uses: maven/maven-installer@v3.8.4
+        with:
+          maven_repository_path: /opt/maven
 
       - name: Build Java Application
         run: mvn clean install
