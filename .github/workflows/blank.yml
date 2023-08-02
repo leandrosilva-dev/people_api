@@ -46,3 +46,7 @@ jobs:
         
       - name: Compile Maven Project
         run: mvn clean install
+
+      - name: Build Docker Image
+        run:
+          docker build -t my-app .
