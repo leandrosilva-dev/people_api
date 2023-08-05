@@ -62,12 +62,10 @@ jobs:
           docker run ${{ secrets.DOCKER_USERNAME }}/my-app:latest
 
       - name: Send Email Alert
-        uses: peter-evans/notify@v2
+        uses: 'marvinpinto/notify2@v1'
         with:
-          to: ${{ secrets.UNIT_TEST_EMAIL }}
-          subject: 'Test Failure'
-          body: 'The tests have failed!'
-          body-template: |
+          to: ${{ secrets.EMAIL_ADDRESS }}
+          template: |
             The tests have failed!
 
             Here are the test results:
