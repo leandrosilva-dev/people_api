@@ -60,3 +60,16 @@ jobs:
       - name: Run Docker Image from Docker Hub
         run: |
           docker run ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+
+      - name: Send Email Alert
+        uses: 'actions/email@v2'
+        with:
+          to: ${{ secrets.UNIT_TEST_EMAIL }}
+          subject: 'Test Failure'
+          body: 'The tests have failed!'
+          body-template: |
+            The tests have failed!
+
+            Here are the test results:
+
+            {{ github.artifacts.get('test-results').content }}
