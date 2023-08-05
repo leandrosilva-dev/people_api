@@ -62,7 +62,7 @@ jobs:
           docker run ${{ secrets.DOCKER_USERNAME }}/my-app:latest
 
       - name: Send Email Alert
-        uses: 'actions/email@v2'
+        uses: peter-evans/notify@v2
         with:
           to: ${{ secrets.UNIT_TEST_EMAIL }}
           subject: 'Test Failure'
